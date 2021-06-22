@@ -23,4 +23,4 @@ class KubernetesClient:
         )
 
     def get(self, url, **kwargs):
-        return self.session.get(f"{self.base_url}/{url}", **kwargs).json()
+        return self.session.get(f"{self.base_url}/{url.lstrip('/')}", **kwargs).json()

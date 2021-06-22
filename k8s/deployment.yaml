@@ -19,7 +19,7 @@ spec:
         toolforge: tool
     spec:
       # The serviceAccountName is special magic. Not for all tools.
-      serviceAccountName: ${tool}-obs
+      serviceAccountName: grid-webservices-obs
       containers:
         - name: webservice
           image: docker-registry.tools.wmflabs.org/toolforge-python37-sssd-web:latest
