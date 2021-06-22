@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    name: grid-webservices
+  name: grid-webservices
+  namespace: tool-grid-webservices
+spec:
+  rules:
+  - host: grid-webservices.toolforge.org
+    http:
+      paths:
+      - backend:
+          serviceName: grid-webservices
+          servicePort: 8000
+        path: /

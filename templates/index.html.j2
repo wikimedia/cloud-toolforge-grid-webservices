@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"
+          href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.css">
+    <title>grid-webservices</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">grid-webservices</a>
+    </div>
+</nav>
+
+
+<div class="container mt-3">
+    <p>
+        <code>grid-webservices</code> is a Toolforge
+        <a href="https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Admin/Infrastructure_tools">infrastructure tool</a>
+        that provides information about web services still running on the
+        <a href="https://wikitech.wikimedia.org/wiki/Help:Toolforge/Grid">job grid</a>
+        to the <a href="https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Admin/Webservicemonitor">web service monitor</a>,
+        which is responsible for making sure web services running on the job grid will be restarted when the job grid
+        detects that they are no longer running.
+    </p>
+
+    <p>
+        This tool queries the information from
+        <a href="https://wikitech.wikimedia.org/wiki/Help:Toolforge/Kubernetes">Kubernetes</a>
+        using a special service account with observer access to all tool namespaces. The information is then exposed
+        via a <a href="/api/v1">JSON interface</a>.
+    </p>
+</div>
+</body>
+</html>

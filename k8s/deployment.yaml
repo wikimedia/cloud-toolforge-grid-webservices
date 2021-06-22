@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: grid-webservices
+    toolforge: tool
+  namespace: tool-grid-webservices
+  name: grid-webservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: grid-webservices
+      toolforge: tool
+  template:
+    metadata:
+      labels:
+        name: grid-webservices
+        toolforge: tool
+    spec:
+      # The serviceAccountName is special magic. Not for all tools.
+      serviceAccountName: ${tool}-obs
+      containers:
+        - name: webservice
+          image: docker-registry.tools.wmflabs.org/toolforge-python37-sssd-web:latest
+          command:
+            - /usr/bin/webservice-runner
+            - --type
+            - uwsgi-python
+            - --port
+            - "8000"
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8000
+            name: http
+            protocol: TCP
+          workingDir: /data/project/grid-webservices
+          livenessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            httpGet:
+              path: /healthz
+              port: http
