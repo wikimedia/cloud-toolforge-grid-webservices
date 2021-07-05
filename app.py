@@ -27,7 +27,7 @@ def api():
         if not namespace.startswith("tool-"):
             continue
         namespace = namespace[5:]
-        tools[namespace] = {"active": True}
+        tools[namespace] = {"status": "active"}
 
     return jsonify(tools), 200
 
