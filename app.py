@@ -17,7 +17,7 @@ def index():
 @app.route("/api/v1")
 def api():
     ingresses = kubernetes.get(
-        "/apis/networking.k8s.io/v1beta1/ingresses",
+        "/apis/networking.k8s.io/v1/ingresses",
         params={"labelSelector": "webservice.toolforge.org/gridengine=true", "limit": 1000},
     )["items"]
 

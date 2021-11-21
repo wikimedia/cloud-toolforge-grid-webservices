@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   labels:
@@ -11,6 +11,9 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: grid-webservices
-          servicePort: 8000
+          service:
+            name: grid-webservices
+            port:
+              number: 8000
         path: /
+        pathType: Prefix
