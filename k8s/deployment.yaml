@@ -22,7 +22,7 @@ spec:
       serviceAccountName: grid-webservices-obs
       containers:
         - name: webservice
-          image: docker-registry.tools.wmflabs.org/toolforge-python37-sssd-web:latest
+          image: docker-registry.tools.wmflabs.org/toolforge-python39-sssd-web:latest
           command:
             - /usr/bin/webservice-runner
             - --type
